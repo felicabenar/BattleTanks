@@ -3,6 +3,10 @@ using Mirror;
 
 public class PlayerNetworking : NetworkBehaviour
 {
+    
+    [SyncVar (hook = nameof(HitMessage))]
+    [SerializeField] int PlayerHealth = 100;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,9 +31,26 @@ public class PlayerNetworking : NetworkBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("BulletTag"))
+        {
+            CmdChangeHealth(10);
+        }
+    }
+
+    [Command]
+    void CmdChangeHealth(int damage)
+    {
+        PlayerHealth -= damage;
+    }
+
+    void HitMessage(int oldHealth, int newHealth)
+    {
+        if (newHealth <= 0)
+        {
+            //RESET PLAYER
+            Debug.Log("u suck");
+        }
     }
 }
