@@ -1,15 +1,17 @@
+using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
 
 public class ChaseCamera : MonoBehaviour
 {
     public static Transform player;
-    public float distance = 8f;
-    public float height = 3f;
-    Vector3 offset = new Vector3(0, 1, 0);
+    [SerializeField] float distance = 12f;
+    [SerializeField] float height = 6f;
+    [SerializeField] Vector3 offset = new Vector3(0, 1, 0);
 
-    float moveSpeed = 1f;
-    float rotSpeed = 3f;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float rotSpeed = 3f;
 
     void FixedUpdate()
     {
@@ -21,7 +23,9 @@ public class ChaseCamera : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.fixedDeltaTime * rotSpeed);
 
-        Vector3 targetPos = player.position + player.up * height - player.forward;
+        Vector3 targetPos = player.position + player.up * height - player.forward * distance;
+
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * moveSpeed);
 
         //transform.parent = player.transform;
 

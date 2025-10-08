@@ -9,14 +9,15 @@ public class TankController : MonoBehaviour
     public bool isGrounded = true;
 
     public Vector3 startPos = Vector3.zero;
-    public Vector3 startRot = Vector3.zero;
+    //public Vector3 startRot = Vector3.zero;
 
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
         ChaseCamera.player = transform;
-        startRot = transform.localEulerAngles;
+        //startRot = transform.localEulerAngles;
     }
 
     void FixedUpdate()
@@ -33,4 +34,11 @@ public class TankController : MonoBehaviour
         rb.MoveRotation(rb.rotation * turn);
 
     }
+
+    void Update() { }
+
+    void OnCollisionEnter() { }
+
+    void OnClick() { }
+
 }

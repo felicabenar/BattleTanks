@@ -15,9 +15,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, timeout);
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 0.1f);
-    }*/
+        Destroy(gameObject);
+    }
 
 }

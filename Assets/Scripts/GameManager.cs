@@ -18,15 +18,18 @@ public class GameManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
         Init();
     }
 
-    void Init()
+    private void Init()
     {
-        if (SceneManager.sceneCount < 2)
+        if (SceneManager.sceneCount == 1)
+        {
             SceneManager.LoadScene("01Menu", LoadSceneMode.Additive);
+        }
     }
 
     public void SetSceneName(string name)

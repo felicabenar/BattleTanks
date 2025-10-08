@@ -12,7 +12,7 @@ public class ResetPlayer : MonoBehaviour
             tform.position = tc.startPos;
             tform.localEulerAngles = tc.transform.localEulerAngles;
             tform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            tform.localEulerAngles = tc.startRot;
+            //tform.localEulerAngles = tc.startRot;
         }       
     }
 

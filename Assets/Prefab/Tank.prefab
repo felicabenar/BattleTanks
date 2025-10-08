@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 1356221079234523650}
   - component: {fileID: -392727461889547617}
   - component: {fileID: -986872427692602617}
-  - component: {fileID: 4101103730653736712}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -160,7 +159,6 @@ MonoBehaviour:
   rotSpeed: 50
   isGrounded: 1
   startPos: {x: 0, y: 0, z: 0}
-  startRot: {x: 0, y: 0, z: 0}
 --- !u!114 &1356221079234523650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,18 +229,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
---- !u!114 &4101103730653736712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805507696102510384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce5b3ba546aea01b99ac82bd23699e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  PlayerHealth: 100
+  playerName: New Player
+  namePrefab: {fileID: 3015898813664625172, guid: a36b1a207137a2c4a95e1fe7908fe00e, type: 3}
+  nameInstance: {fileID: 0}
 --- !u!1 &7091156598176536850
 GameObject:
   m_ObjectHideFlags: 0
